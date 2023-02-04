@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.json())
     .then((data) => {
       // see the data
-      console.log(data);
+      // console.log(data);
 
       title.textContent = data.results[0].name;
       image.src = data.results[0].image;
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
           fetch(`${url}/${personId}`)
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
+              // console.log(data);
 
               title.textContent = data.name;
               image.src = data.image;
