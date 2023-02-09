@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
 
       const divTiles = document.querySelector(".tiles");
 
       for (const member of data.results) {
-        const artcile = document.createElement("article");
-        artcile.classList.add("tile");
-        artcile.innerHTML = `
+        const article = document.createElement("article");
+        article.classList.add("tile");
+        article.innerHTML = `
         <div class="tile-header">
         <h3>
         <span>${member.name}</span>
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </h3>
         </div>
         <a href="#">
-        <span>More details</span>
+        <span>More info</span>
         <span><img src=${member.image} alt=${member.name} class="icon-button" /></span>
         </a>
         `;
@@ -30,15 +30,46 @@ document.addEventListener("DOMContentLoaded", () => {
         const namesOfCharacters = [];
         for (const member of data.results) namesOfCharacters.push(member.name);
 
-        artcile.addEventListener("click", (e) => {
+        const modal = document.querySelector(".modal");
+        const overlay = document.querySelector(".overlay");
+
+        const closeModal = function () {
+          modal.classList.add("hidden");
+          overlay.classList.add("hidden");
+        };
+
+        article.addEventListener("click", (e) => {
           e.preventDefault();
           const clickedName =
-            artcile.children[0].children[0].children[0].textContent;
+            article.children[0].children[0].children[0].textContent;
           const characterId = namesOfCharacters.indexOf(clickedName) + 1;
-          console.log(characterId);
+          // console.log(characterId);
+          modal.classList.remove("hidden");
+          overlay.classList.remove("hidden");
+          overlay.addEventListener("click", closeModal);
+
+          fetch(`${url}/${characterId}`)
+            .then((res) => res.json())
+            .then((data) => {
+              // console.log(data);
+
+              modal.innerHTML = `
+              <div class="flex">
+                <img
+                  src=${data.image}
+                  alt=${data.name}
+                />
+              </div>
+              <p>${data.name}</p>
+              <p>${data.gender}</p>
+              <p>${data.species}</p>
+              <p>${data.status}</p>
+              <p>${data.episode.length} ${data.episode.length !== 1 ? 'episodes' : 'episode'}</p>
+              `;
+            });
         });
 
-        divTiles.appendChild(artcile);
+        divTiles.appendChild(article);
       }
     });
 });
