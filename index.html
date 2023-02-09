@@ -1,33 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phase 1: Project</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <title>Rick and Morty API</title>
   </head>
   <body>
-    <header>
-      <h1 id="title">Title Here</h1>
-    </header>
-
-    <div id="container">
-      <section id="side-section">
-        <ul id="list-items"></ul>
-      </section>
-
-      <section id="main-section">
-        <div id="first"></div>
-        <div id="second">
-          <div id="second-left">Testing Left</div>
-          <div id="second-right">Testing Right</div>
+    <div class="app">
+      <header class="app-header">
+        <div class="app-header-logo">
+          <div class="logo">
+            <span class="logo-icon">
+              <img src="https://assets.codepen.io/285131/almeria-logo.svg" />
+            </span>
+            <h1 class="logo-title">
+              <span>Phase I</span>
+              <span>Project</span>
+            </h1>
+          </div>
         </div>
-        <div id="third">Div Third</div>
-      </section>
-    </div>
+        <div class="app-header-navigation">
+          <div class="tabs">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+          </div>
+        </div>
+        <div class="app-header-actions">
+          <button class="user-profile">
+            <span>Moringa Student</span>
+            <span>
+              <img src="https://assets.codepen.io/285131/almeria-logo.svg" />
+            </span>
+          </button>
 
-    <footer>Copyright @ Moringa Student</footer>
+          <div class="app-header-actions-buttons">
+            <button class="icon-button large">B</button>
+            <button class="icon-button large">W</button>
+          </div>
+        </div>
+      </header>
+      <div class="app-body">
+        <div class="app-body-navigation">
+          <nav class="navigation"></nav>
+          <footer class="footer">
+            <h1>Phase I</h1>
+            <div>
+              Project<br />
+              Rick & Morty
+            </div>
+          </footer>
+        </div>
+
+        <div class="app-body-main-content">
+          <section class="service-section">
+            <div class="tiles">
+              <!-- <article class="tile">
+                <div class="tile-header">
+                  <h3>
+                    <span>Rick Sanchez</span>
+                    <span>Human</span>
+                  </h3>
+                </div>
+                <a href="#">
+                  <span>More details</span>
+                  <span class="icon-button"> </span>
+                </a>
+              </article> -->
+            </div>
+            <div class="service-section-footer">
+              <p>All characters from the Rick & Morty sitcom world.</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="app-body-sidebar"></div>
+      </div>
+    </div>
     <script src="./js/main.js"></script>
   </body>
 </html>
