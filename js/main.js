@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   alt=${data.name}
                 />
               </div>
-              <p>${data.name}</p>
+              <h2>${data.name}</h2>
               <p>${data.gender}</p>
               <p>${data.species}</p>
               <p>${data.status}</p>
